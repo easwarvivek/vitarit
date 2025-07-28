@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+contract TestContract {
+   uint256 public max;
+
+   constructor (uint256 _max) {
+       max = _max;
+   }
+   receive() external payable {
+       if ((address(this).balance + msg.value) > max) {
+           revert("Plz, don't send");
+       }
+   }
+}

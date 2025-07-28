@@ -1,0 +1,40 @@
+[package]
+name = "crypto"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lazy_static = "1.4.0"
+arrayvec = "0.7.2"
+hex = "0.4.2"
+
+miracl_core_bls12381 = "4.1.2"
+miracl_core_ed25519 = "0.2.0"
+
+rand = "0.8"
+rand_chacha = "0.2.2"
+zeroize = { version = "1.4.3", features = ["zeroize_derive"] }
+
+[dev-dependencies]
+criterion = "0.3.4"
+proptest = "1.0.0"
+
+[[bench]]
+name = "sha256"
+harness = false
+
+[[bench]]
+name = "bls_signature"
+harness = false
+
+[[bench]]
+name = "bls_multi_signature"
+harness = false
+
+[[bench]]
+name = "bls12381"
+harness = false
+
+[[bench]]
+name = "ed25519"
+harness = false
