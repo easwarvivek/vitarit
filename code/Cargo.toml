@@ -1,0 +1,47 @@
+[package]
+name = "vitarit"
+version = "0.1.0"
+edition = "2021"
+description = "VITĀRIT: Paying for Threshold Services on Bitcoin and Friends (ePrint 2025/174)"
+license = "MIT"
+authors = ["Vitarit implementation"]
+
+[dependencies]
+bls12_381 = "0.8"
+curve25519-dalek = { version = "4", features = ["rand_core", "digest"] }
+ff = "0.13"
+group = "0.13"
+sha2 = "0.10"
+sha3 = "0.10"
+rand = "0.8"
+rand_core = "0.6"
+thiserror = "1"
+zeroize = { version = "1", features = ["zeroize_derive"] }
+subtle = "2"
+hex = "0.4"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[features]
+default = []
+
+[lib]
+name = "vitarit"
+path = "src/lib.rs"
+
+[[example]]
+name = "run_protocol"
+path = "examples/run_protocol.rs"
+
+[[example]]
+name = "timings"
+path = "examples/timings.rs"
+
+[[bench]]
+name = "protocol_bench"
+harness = false
+
+[[bench]]
+name = "lambda_s_sweep"
+harness = false

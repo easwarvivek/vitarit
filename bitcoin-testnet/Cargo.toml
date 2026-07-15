@@ -1,0 +1,40 @@
+[package]
+name = "vitarit-bitcoin"
+version = "0.1.0"
+edition = "2021"
+description = "Bitcoin (regtest/testnet) realization of Vitārit transaction layer — ePrint 2025/174 Figures 2 & 7"
+license = "MIT"
+publish = false
+
+[dependencies]
+bitcoin = { version = "0.32", features = ["std", "rand-std", "secp-recovery"] }
+secp256k1 = { version = "0.29", features = ["global-context", "rand-std"] }
+hex = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+sha2 = "0.10"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+rand = "0.8"
+
+[[example]]
+name = "checklist"
+path = "examples/checklist.rs"
+
+[[example]]
+name = "simulate_fig7"
+path = "examples/simulate_fig7.rs"
+
+[[example]]
+name = "timings"
+path = "examples/timings.rs"
+
+[[bin]]
+name = "vitarit-btc"
+path = "src/main.rs"
+
+[[bench]]
+name = "tx_bench"
+harness = false

@@ -1,0 +1,5 @@
+/target/
+/.regtest-data/
+Cargo.lock
+*.swp
+.DS_Store
