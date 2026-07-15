@@ -1,4 +1,4 @@
-# Vitārit (Rust)
+# Vitārit
 
 Rust realization of **Vitārit: Paying for Threshold Services on Bitcoin and Friends**
 ([ePrint 2025/174](https://eprint.iacr.org/2025/174))
