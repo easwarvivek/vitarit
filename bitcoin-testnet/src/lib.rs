@@ -14,9 +14,11 @@ pub mod ledger;
 pub mod network;
 pub mod policy;
 pub mod protocol;
+pub mod signing;
 pub mod transactions;
 
 pub use error::{Error, Result};
 pub use network::BtcNetwork;
 pub use protocol::{Fig7Params, Fig7Session};
+pub use signing::{payment_adaptor_message, sign_payment_2of2_plus_aux};
 pub use transactions::{PaymentPlan, SetupPlan};

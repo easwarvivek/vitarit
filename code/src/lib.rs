@@ -12,7 +12,7 @@
 //! | [`vitarit`]   | Figure 7        |
 //!
 //! Supporting primitives: [`dvrf`] (DVTS/DVRF), [`adaptor`] (AS),
-//! [`schnorr`] (DS), [`nizk`] (Fiat–Shamir Schnorr for L′).
+//! [`schnorr`] (DS), [`nizk`] (Fiat–Shamir Schnorr for L′), [`wire`] (message framing).
 
 #![forbid(unsafe_code)]
 
@@ -28,6 +28,7 @@ pub mod schnorr;
 pub mod tx;
 pub mod vitarit;
 pub mod vne;
+pub mod wire;
 
 pub use error::{Error, Result};
 pub use pkenc::PkEnc;

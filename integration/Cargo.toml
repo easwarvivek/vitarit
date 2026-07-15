@@ -1,0 +1,22 @@
+[package]
+name = "vitarit-integration"
+version = "0.1.0"
+edition = "2021"
+description = "End-to-end Vitārit: Γ²ᵖᶜ wire messages + Bitcoin testnet/regtest payment layer"
+license = "MIT"
+publish = false
+
+[dependencies]
+vitarit = { path = "../code" }
+vitarit-bitcoin = { path = "../bitcoin-testnet" }
+bitcoin = { version = "0.32", features = ["std"] }
+hex = "0.4"
+rand = "0.8"
+rand_core = "0.6"
+thiserror = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[[example]]
+name = "local_testnet_session"
+path = "examples/local_testnet_session.rs"

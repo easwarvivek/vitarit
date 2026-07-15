@@ -1,0 +1,4 @@
+[workspace]
+resolver = "2"
+members = ["code", "bitcoin-testnet", "integration"]
+default-members = ["code", "bitcoin-testnet", "integration"]

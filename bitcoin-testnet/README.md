@@ -5,7 +5,8 @@ Figures **2** and **7** (deposits, auxiliary UTXOs, payment transactions,
 pay-at-most-once).
 
 This folder is **independent** of `../code` (crypto: VNE, Γ²ᵖᶜ, DVRF).
-Do not need to modify that crate to use these tools.
+The full protocol (wire + signing) is exercised from `../integration`.
+Do not need to modify the crypto crate to use the Bitcoin tools alone.
 
 ## What you get
 
@@ -75,9 +76,20 @@ bitcoin-testnet/
     ├── policy.rs        # 2-of-2 P2WSH, P2WPKH, optional CSV refund
     ├── transactions.rs  # tx_stp, tx_aux, tx_pay builders
     ├── ledger.rs        # in-memory UTXO set (pay-at-most-once tests)
+    ├── signing.rs       # ECDSA P2WSH 2-of-2 + P2WPKH payment witnesses
     ├── protocol.rs      # Fig 7 session + simulation report
     └── network.rs
 ```
+
+### Full protocol (crypto + Bitcoin)
+
+```bash
+cd ..   # repo root (Cargo workspace)
+cargo test -p vitarit-integration
+cargo run -p vitarit-integration --example local_testnet_session
+# or: ./scripts/run_local_session.sh
+```
+
 
 ## Tests
 

@@ -19,7 +19,7 @@ cargo build
 
 ## Run tests
 
-All unit tests (currently 82) live in `#[cfg(test)]` modules next to the code they cover.
+All unit tests (currently 84, including `wire` codecs) live in `#[cfg(test)]` modules next to the code they cover.
 
 ```bash
 cd code
@@ -99,6 +99,7 @@ code/
     ├── vne.rs               # Figure 9 — concrete cut-and-choose VNE
     ├── tx.rs                # abstract UTXO ledger + payment txs
     ├── gamma2pc.rs          # Figure 8 — Γ²ᵖᶜ exchange
+    ├── wire.rs              # Length-prefixed wire codec for Γ²ᵖᶜ messages
     └── vitarit.rs           # Figure 7 — full protocol
 ```
 
@@ -119,6 +120,7 @@ code/
 | `src/vne.rs` | **Figure 9** VNE: cut-and-choose over `2λ_s` PKEnc ciphertexts; opened openings + unopened `(Z_j, π_j)`. |
 | `src/tx.rs` | UTXO model: addresses, setup/payment transactions, in-memory ledger enforcing pay-at-most-once via auxiliary outputs. |
 | `src/gamma2pc.rs` | **Figure 8** two-party sub-protocol: server VNE-encrypts partial VRF; client pre-signs; server adapts & posts; client extracts `dk` and decrypts. |
+| `src/wire.rs` | Binary framing (`VIT1`) for `WireServerOffer` / `WireClientPresig` / `WireServerFinal`. |
 | `src/vitarit.rs` | **Figure 7**: setup deposits, per-server Γ²ᵖᶜ payments, reconstruction of the final VRF. |
 | `examples/run_protocol.rs` | Small driver that calls `VitaritProtocol::run` and prints success. |
 
